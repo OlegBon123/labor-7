@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Магічний шар</title>
+  <style>
+    body {
+      background-color: rgb(32, 1, 14); 
+    }
+    #magic-ball {
+      background-image: url('img/шар.jpg');
+      width: 850px;
+      height: 600px;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      margin: 100px auto;
+      text-align: center;
+      padding-top: 200px;
+    }
+    #question-box {
+      margin: 0 auto;
+      text-align: center;
+    }
+    #userQuestion {
+      width: 25%;
+      margin: 10 auto;
+      text-align: center;
+    }
+    #answer {
+      padding: 10px;
+      position: absolute;
+      top: 378px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 29px;
+      color: rgb(10, 8, 8);
+    }
+  </style>
+</head>
+<body>
+  <div id="magic-ball">
+    <div id="answer"></div>
+  </div>
+  <div id="question-box">
+    <input type="text" id="userQuestion" placeholder="Поставте запитання">
+    <br>
+    <button onclick="getAnswer()">Отримати відповідь</button>
+  </div>
+  <script>
+    function getAnswer() {
+      const userQuestion = document.getElementById('userQuestion').value.trim();
+      if (!userQuestion) return alert('Введіть своє питання!');
+      const answers = ['Так', 'Ні', 'Можливо'];
+      const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+      document.getElementById('answer').innerHTML = randomAnswer;
+    }
+  </script>
+</body>
+</html>
+
